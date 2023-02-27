@@ -5,6 +5,8 @@ A simple WebRTC boilerplate.
 
 Based on the example code written by [Shane Tully](https://github.com/shanet/WebRTC-Example).
 
+![screenshot]('docs/screenshot.png')
+
 ## Usage
 
 The signaling server uses Node.js and `ws` and can be started as such:
