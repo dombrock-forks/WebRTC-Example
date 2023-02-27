@@ -1,3 +1,5 @@
+const PORT = 1337;
+
 let _s = {
   localVideo: undefined,
   localStream: undefined,
@@ -28,7 +30,7 @@ function pageReady() {
   _s.localVideo = _dom.localVideo;
   _s.remoteVideo = _dom.remoteVideo;
 
-  _s.serverConnection = new WebSocket('wss://' + window.location.hostname + ':8443');
+  _s.serverConnection = new WebSocket('wss://' + window.location.hostname + ':' + PORT);
   _s.serverConnection.onmessage = gotMessageFromServer;
 
   const constraints = {
