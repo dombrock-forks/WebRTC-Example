@@ -1,20 +1,124 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebRTC Boilerplate</title>
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="webrtc.js"></script>
   </head>
 
   <body>
-    <video id="localVideo" autoplay muted style="width:40%;"></video>
-    <video id="remoteVideo" autoplay style="width:40%;"></video>
+    <div class="video-wrapper">
+      <video id="localVideo" class="video rnd" autoplay muted></video>
+      <video id="remoteVideo" class="video rnd" autoplay></video>
+      <div class="label">You</div>
+      <div class="label">Peer</div>
+    </div>
+    <div class="btn-wrap">
+      <input type="button" id="dbg" onclick="showStatus(true)" value="DBG"></input>
+      <input type="button" id="start" onclick="start(true)" value="Connect"></input>
+    </div>
+      <div id="chatWrap" class="chat-wrap" style="display:none;">
+	<div id="msgArea" class="msg-area">
+	  MESSAG AREA<br>
+	</div>
+	<div class="chat-input">
+	  <!--<input type="text" id="chatInput" placeholder="Write a message...">-->
+	  <textarea id="chatInput" placeholder="Write a message..."></textarea>	
+	  <br><br>
+	  <input type="button" id="send" onclick="sendMsg()" value="send"></input>
+	</div>
+      </div>
+    <div id="statusWrap" class="status-wrap" style="display:none;">
+      Status: <span id="status">Page Loaded</span>
+    </div>
 
-    <br />
-
-    <input type="button" id="start" onclick="start(true)" value="Start Video"></input>
-
+    <br>
+    <div id="uuid">...</div>
     <script type="text/javascript">
         pageReady();
     </script>
+  <style>
+    :root{
+      --accent: rgb(25,55,155);
+      --accent2: rgb(35,75,200);
+    }
+    html{
+      background: rgb(45,45,45);
+      color: white;
+      font-family: Tahoma, Verdana, Segoe, sans-serif;
+    }
+    body{
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    input[type="button"] {
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+    }
+    input[type="button"]:hover{
+      background: var(--accent2);
+    }
+    /*input[type="text"]{*/
+    textarea{
+      background: rgb(45,45,45);
+      color:white;
+      font-size:1.1rem;
+      padding:0.5rem;
+      border: 2px solid white;
+      text-align:left;
+      width:calc(100% - 1rem);
+      resize: vertical;
+    }
+    .rnd{
+      border-radius:0.5rem;
+    }
+    .video-wrapper{
+      background: rgb(22,22,22);
+      padding: 1rem;
+      padding-top:2rem;
+      text-align:center;
+      margin-top:2rem;
+    }
+    .video{
+      width:480px;
+      height:360px;
+      background: var(--accent2);
+    }
+    .label{
+      display: inline-block;
+      width:480px;
+      height:2rem;
+    }
+    .btn-wrap{
+      text-align:right;
+      background: rgb(33,33,33);
+    }
+    .status-wrap{
+      background: rgb(22,55,22);
+      padding: 0.5rem;
+      height:24rem;
+      resize: vertical;
+      overflow-y: scroll;
+    }
+    .chat-wrap{
+      background: rgb(33,33,33);
+    }
+    .msg-area{
+      background: rgb(65,65,65);
+      padding: 1rem;
+      height: 4.5rem;
+      overflow-y: scroll;
+      resize: vertical;
+    }
+    .chat-input{
+    	text-align:right;
+    }
+    
+  </style>
   </body>
 </html>
