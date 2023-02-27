@@ -5,7 +5,7 @@ A simple WebRTC boilerplate.
 
 Based on the example code written by [Shane Tully](https://github.com/shanet/WebRTC-Example).
 
-![screenshot]('docs/screenshot.png')
+![screenshot](docs/screenshot.png)
 
 ## Usage
 
